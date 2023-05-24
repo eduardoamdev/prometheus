@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "express": "^4.16.1",
-    "prom-client" : "11.5.3"
+    "prom-client": "11.5.3",
+    "@graphql-tools/schema": "^10.0.0",
+    "apollo-server-express": "^3.12.0"
   }
 }

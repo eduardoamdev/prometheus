@@ -1,5 +1,6 @@
 const express = require("express");
 const client = require("prom-client");
+const apollo = require("./graphql");
 
 const PORT = 5000;
 const HOST = "0.0.0.0";
@@ -25,6 +26,8 @@ const registerRequest = (req, res, next) => {
 };
 
 const app = express();
+
+apollo(app);
 
 app.get("/checkNumber/:number", registerRequest, (req, res) => {
   const { number } = req.params;
