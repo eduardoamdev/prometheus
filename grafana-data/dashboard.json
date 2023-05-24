@@ -94,6 +94,34 @@
               "#e5ac0e",
               "#bf1b00"
             ]
+          },
+          {
+            "type": "singlestat",
+            "title": "GQL Requests",
+            "gridPos": {
+              "x": 6,
+              "y": 0,
+              "w": 3,
+              "h": 3
+            },
+            "id": 3,
+            "targets": [
+              {
+                "expr": "number_of_gql_requests",
+                "format": "time_series",
+                "intervalFactor": 1,
+                "refId": "A"
+              }
+            ],
+            "datasource": "prometheus",
+            "valueName": "current",
+            "format": "none",
+            "thresholds": "",
+            "colors": [
+              "#299c46",
+              "#e5ac0e",
+              "#bf1b00"
+            ]
           }
         ],
         "title": "NodeJS",
