@@ -1,10 +1,11 @@
 const express = require("express");
-const apollo = require("./graphql");
-const client = require("prom-client");
+// const apollo = require("./graphql");
+// const client = require("prom-client");
 const {
   visitsGauge,
   successGauge,
   errorGauge,
+  prometheusMiddleware,
 } = require("./metrics/prometheus");
 
 const PORT = 5000;
@@ -17,7 +18,7 @@ const registerRequest = (req, res, next) => {
 
 const app = express();
 
-apollo(app);
+// apollo(app);
 
 app.get("/checkNumber/:number", registerRequest, (req, res) => {
   const { number } = req.params;
@@ -40,10 +41,12 @@ app.get("/checkNumber/:number", registerRequest, (req, res) => {
   }
 });
 
-app.get("/metrics", (req, res) => {
-  res.set("Content-Type", client.register.contentType);
-  res.end(client.register.metrics());
-});
+// app.get("/metrics", (req, res) => {
+//   res.set("Content-Type", client.register.contentType);
+//   res.end(client.register.metrics());
+// });
+
+app.use(prometheusMiddleware);
 
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
