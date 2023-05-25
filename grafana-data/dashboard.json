@@ -45,13 +45,13 @@
             "gridPos": {
               "x": 0,
               "y": 0,
-              "w": 3,
-              "h": 3
+              "w": 5,
+              "h": 5
             },
             "id": 1,
             "targets": [
               {
-                "expr": "number_of_requests",
+                "expr": "nodejs_application_gauge{type=\"number_of_rest_requests\"}",
                 "format": "time_series",
                 "intervalFactor": 1,
                 "refId": "A"
@@ -69,17 +69,45 @@
           },
           {
             "type": "singlestat",
-            "title": "% of successful requests",
+            "title": "Successful rest requests",
             "gridPos": {
-              "x": 3,
+              "x": 5,
               "y": 0,
-              "w": 3,
-              "h": 3
+              "w": 5,
+              "h": 5
             },
             "id": 2,
             "targets": [
               {
-                "expr": "number_of_successfull_requests / (number_of_successfull_requests + number_of_not_successfull_requests) * 100",
+                "expr": "nodejs_application_gauge{type=\"number_of_successful_rest_requests\"}",
+                "format": "time_series",
+                "intervalFactor": 1,
+                "refId": "A"
+              }
+            ],
+            "datasource": "prometheus",
+            "valueName": "current",
+            "format": "none",
+            "thresholds": "",
+            "colors": [
+              "#299c46",
+              "#e5ac0e",
+              "#bf1b00"
+            ]
+          },
+          {
+            "type": "singlestat",
+            "title": "Not successful rest requests",
+            "gridPos": {
+              "x": 10,
+              "y": 0,
+              "w": 5,
+              "h": 5
+            },
+            "id": 3,
+            "targets": [
+              {
+                "expr": "nodejs_application_gauge{type=\"number_of_not_successful_rest_requests\"}",
                 "format": "time_series",
                 "intervalFactor": 1,
                 "refId": "A"
@@ -99,15 +127,15 @@
             "type": "singlestat",
             "title": "GQL Requests",
             "gridPos": {
-              "x": 6,
+              "x": 15,
               "y": 0,
-              "w": 3,
-              "h": 3
+              "w": 5,
+              "h": 5
             },
-            "id": 3,
+            "id": 4,
             "targets": [
               {
-                "expr": "number_of_gql_requests",
+                "expr": "nodejs_application_gauge{type=\"number_of_gql_requests\"}",
                 "format": "time_series",
                 "intervalFactor": 1,
                 "refId": "A"
