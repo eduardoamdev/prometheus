@@ -1,7 +1,6 @@
 const { ApolloServer } = require("apollo-server-express");
 const schema = require("./root.schemas");
-
-const start = async (app, config) => {
+const start = async (app) => {
   const apolloServer = new ApolloServer({
     schema,
   });

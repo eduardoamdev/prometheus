@@ -1,7 +1,8 @@
-const { gauge } = require("../../../metrics/prometheus");
+const { gauge } = require("../../../utils/metrics");
+const { APP_ID } = require("../../../utils/constants");
 
 const endpoint = async () => {
-  gauge.inc({ app: "nodejs_application", type: "number_of_gql_requests" });
+  gauge.inc({ type: "number_of_gql_requests", app: APP_ID });
   return { message: "GQL works!!!" };
 };
 

@@ -41,7 +41,7 @@
         "panels": [
           {
             "type": "singlestat",
-            "title": "Total Requests",
+            "title": "Total rest requests",
             "gridPos": {
               "x": 0,
               "y": 0,
@@ -125,7 +125,7 @@
           },
           {
             "type": "singlestat",
-            "title": "GQL Requests",
+            "title": "GraphQL Requests",
             "gridPos": {
               "x": 15,
               "y": 0,

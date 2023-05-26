@@ -7,9 +7,10 @@ client.collectDefaultMetrics();
 const gauge = new client.Gauge({
   name: `${appId}_gauge`,
   help: "nodejs_application gauge",
-  labelNames: ["app", "type"],
+  labelNames: ["type", "app"],
 });
 
 module.exports = {
+  client,
   gauge,
 };
